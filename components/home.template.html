@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Photos ({{$ctrl.photos.length}})</div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="photo in $ctrl.photos track by $index">{{$index + 1}}. {{photo.title}}</li>
+        </ul>
+    </div>
+</div>

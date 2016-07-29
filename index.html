@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/app.css" media="screen" title="no title" charset="utf-8">
+    <title>Document</title>
+</head>
+
+<body ng-app="myApp">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ng-view></ng-view>
+            </div>
+        </div>
+    </div>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angular-route/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="./components/home.component.js"></script>
+    <script src="./services/photo.factory.js"></script>
+</body>
+
+</html>
