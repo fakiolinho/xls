@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "live-server"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,7 @@
     "angular": "^1.5.8",
     "angular-route": "^1.5.8",
     "bootstrap": "^3.3.7",
-    "jquery": "^2.2.4"
+    "jquery": "^2.2.4",
+    "live-server": "^1.0.0"
   }
 }
