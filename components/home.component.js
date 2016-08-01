@@ -12,7 +12,6 @@ homeComponentController.$inject = ['$scope', 'photoService'];
 
 function homeComponentController($scope, photoService) {
     var self = this;
-    window.scope = self;
     self.buffer = [];
     self.counter = 0;
     self.windowHeight = window.innerHeight;
@@ -38,7 +37,20 @@ function homeComponentController($scope, photoService) {
                     .then(function(response) {
                         self.buffer[self.counter].data = response.data.slice(self.counter * 100, self.counter * 100 + 100);
                         console.log('GET NEW ITEMS', self.counter);
-                    }, function(err) {
+                    })
+                    .then(function() {
+                        console.log(123123123123);
+                        if (!self.buffer[self.counter].show) {
+                            // show new data
+                            self.buffer[self.counter].show = true;
+                            // $scope.$apply(function() {
+                                var photos = self.photos.concat(self.buffer[self.counter].data);
+                                self.photos = photos;
+                                console.log('SHOW NEW ITEMS', self.counter);
+                            // });
+                        }
+                    })
+                    .catch(function(err) {
                         console.log(err);
                     });
             }
@@ -49,15 +61,7 @@ function homeComponentController($scope, photoService) {
             // set buffer[counter].show to true
             // i guess the best option here is to concat old and new data
 
-            if (!self.buffer[self.counter].show) {
-                // show new data
-                self.buffer[self.counter].show = true;
-                $scope.$apply(function() {
-                    var photos = self.photos.concat(self.buffer[self.counter].data);
-                    self.photos = photos;
-                    console.log('SHOW NEW ITEMS', self.counter);
-                });
-            }
+
         }
 
         $scope.$apply(function() {
